@@ -17,7 +17,6 @@ def get_object(line, title):
     return res
 
 def symbol_count(data, title, length):
-    find = []
     count = 0
     for line in data:
         name = get_object(line, title)

@@ -35,5 +35,8 @@ if __name__ == '__main__':
     with open(DATA_PATH) as data:
         title = get_title(data)
         line = next(data)
+        author = 'Adam Lebor'
+        res = author_finder(data, title, author)
+        print(res)
         
         

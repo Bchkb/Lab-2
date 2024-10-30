@@ -21,21 +21,21 @@ def author_finder(data, title, author):
 
     for line in data:
         string = get_object(line, title)
-        author_value = string['Book-Title']
+        author_value = string['Book-Author']
         year_value = string['Year-Of-Publication']
         if author_value == str(author) and int(year_value) >= 2018:
-            find.append(string)
+            if string['Book-Title'] not in find:
+                find.append(string['Book-Title'])
     
     data.seek(0)
     return find
-
 
 
 if __name__ == '__main__':
     with open(DATA_PATH) as data:
         title = get_title(data)
         line = next(data)
-        author = 'Adam Lebor'
+        author = input()
         res = author_finder(data, title, author)
         print(res)
         
